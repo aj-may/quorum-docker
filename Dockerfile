@@ -13,7 +13,7 @@ RUN curl -L https://github.com/jpmorganchase/quorum/archive/v${VERSION}.tar.gz |
 # Pull all binaries into a second stage deploy alpine container
 FROM alpine:latest
 
-RUN apk add --no-cache ca-certificates
+RUN apk add --no-cache ca-certificates curl
 COPY --from=builder /go/src/quorum/build/bin/* /usr/local/bin/
 
 EXPOSE 8545 8546 30303 30303/udp 30304/udp
