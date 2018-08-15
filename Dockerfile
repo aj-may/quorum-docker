@@ -3,9 +3,9 @@ FROM golang:1.9-alpine as builder
 
 RUN apk add --no-cache make gcc musl-dev linux-headers curl
 
-ENV VERSION=2.0.2
+ENV VERSION=159d813f355c19849abc0024e98f08ae7bf2fad0
 
-RUN curl -L https://github.com/jpmorganchase/quorum/archive/v${VERSION}.tar.gz | tar -zxf - -C src && \
+RUN curl -L https://github.com/jpmorganchase/quorum/archive/${VERSION}.tar.gz | tar -zxf - -C src && \
     mv src/quorum-${VERSION} src/quorum && \
     cd /go/src/quorum && \
     make all
